@@ -6,7 +6,7 @@ var options = {
 };
 
 var pgp = require('pg-promise')(options);
-var connectionString = 'postgres://dndjournal:Teik5ait@localhost:5432/dndjournal';
+var connectionString = 'postgres://dndjournal:furrybananas@localhost:5432/dndjournal';
 var db = pgp(connectionString);
 
 // add query functions
@@ -17,7 +17,6 @@ module.exports = {
   // createCharacter: createCharacter,
   // updateCharacter: updateCharacter,
   // removeCharacter: removeCharacter,
-  getAllEvents: getAllEvents
 };
 
 
@@ -50,25 +49,5 @@ function getSingleCharacter(req, res, next) {
     })
     .catch(function (err) {
       return next(err);
-    });
-}
-
-
-
-
-
-
-
-
-function getAllEvents(req, res, next) {
-  db.any('select * from event')
-    .then(function (data) {
-      console.log(data);
-      res.render('events', { title: 'Events', events:data });
-        // .json({
-        //   status: 'success',
-        //   data: data,
-        //   message: 'Retrieved ALL events'
-        // });
     });
 }
