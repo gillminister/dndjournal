@@ -1,0 +1,511 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.5.5
+-- Dumped by pg_dump version 9.5.5
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+--
+-- Name: class; Type: TYPE; Schema: public; Owner: dndjournal
+--
+
+CREATE TYPE class AS ENUM (
+    'barbarian',
+    'bard',
+    'cleric',
+    'druid',
+    'fighter',
+    'monk',
+    'paladin',
+    'ranger',
+    'rogue',
+    'sorcerer',
+    'wizard'
+);
+
+
+ALTER TYPE class OWNER TO dndjournal;
+
+--
+-- Name: feat; Type: TYPE; Schema: public; Owner: dndjournal
+--
+
+CREATE TYPE feat AS ENUM (
+    'acrobatic',
+    'agile',
+    'alertness',
+    'animal affinity',
+    'armor proficiency (light)',
+    'armor proficiency (medium)',
+    'armor profeciency (heavy)',
+    'athletic',
+    'augment summoning',
+    'blind fight',
+    'combat casting',
+    'combat expertise',
+    'improved disarm',
+    'improved feint',
+    'improved trip',
+    'whirlwind attack',
+    'combat reflexes',
+    'deceitful',
+    'deft hands',
+    'diligent',
+    'dodge',
+    'mobiliy',
+    'spring attack',
+    'endurance',
+    'diehard',
+    'eschew materials',
+    'exotic weapon proficiency',
+    'extra turning',
+    'great fortitude',
+    'improved counterspell',
+    'improved critical',
+    'improved initiative',
+    'improved turning',
+    'improved unarmed strike',
+    'improved grapple',
+    'deflect arrows',
+    'snatch arrows',
+    'stunning fist',
+    'investigator',
+    'iron will',
+    'leadership',
+    'lightning reflexes',
+    'magical aptitude',
+    'martial weapon proficiency',
+    'mounted combat',
+    'mounted archery',
+    'ride-by attack',
+    'spirited charge',
+    'trample',
+    'natural spell',
+    'negotiator',
+    'nimble fingers',
+    'persuasive',
+    'point blank shot',
+    'far shot',
+    'precise shot',
+    'rapid shot',
+    'manyshot',
+    'shot on the run',
+    'improved precise shot',
+    'power attack',
+    'cleave',
+    'great cleave',
+    'improved bull rush',
+    'improved overrun',
+    'improved sunder',
+    'quick draw',
+    'rapid reload',
+    'run',
+    'selv-sufficient',
+    'shield proficiency',
+    'improved shield bash',
+    'tower shield proficiency',
+    'simple weapon proficiency',
+    'skill focus',
+    'spell focus',
+    'greater spell focus',
+    'spell mastery',
+    'spell penetration',
+    'greater spell penetration',
+    'stealthy',
+    'toughness',
+    'track',
+    'two-weapon fighting',
+    'two-weapon defense',
+    'improved two-weapon fighting',
+    'greater two-weapon fighting',
+    'weapon finesse',
+    'weapon focus',
+    'weapon specialization',
+    'greater weapon focus',
+    'greater weapon specialization'
+);
+
+
+ALTER TYPE feat OWNER TO dndjournal;
+
+--
+-- Name: race; Type: TYPE; Schema: public; Owner: dndjournal
+--
+
+CREATE TYPE race AS ENUM (
+    'human',
+    'elf',
+    'half-elf',
+    'dwarf',
+    'half-orc',
+    'gnome',
+    'halfling'
+);
+
+
+ALTER TYPE race OWNER TO dndjournal;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: character; Type: TABLE; Schema: public; Owner: dndjournal
+--
+
+CREATE TABLE "character" (
+    id integer NOT NULL,
+    race race NOT NULL,
+    name character varying(50)
+);
+
+
+ALTER TABLE "character" OWNER TO dndjournal;
+
+--
+-- Name: character_id_seq; Type: SEQUENCE; Schema: public; Owner: dndjournal
+--
+
+CREATE SEQUENCE character_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE character_id_seq OWNER TO dndjournal;
+
+--
+-- Name: character_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: dndjournal
+--
+
+ALTER SEQUENCE character_id_seq OWNED BY "character".id;
+
+
+--
+-- Name: event; Type: TABLE; Schema: public; Owner: dndjournal
+--
+
+CREATE TABLE event (
+    id integer NOT NULL,
+    year integer NOT NULL,
+    milliseconds bigint NOT NULL,
+    title character varying(60) NOT NULL,
+    description text
+);
+
+
+ALTER TABLE event OWNER TO dndjournal;
+
+--
+-- Name: event_id_seq; Type: SEQUENCE; Schema: public; Owner: dndjournal
+--
+
+CREATE SEQUENCE event_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE event_id_seq OWNER TO dndjournal;
+
+--
+-- Name: event_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: dndjournal
+--
+
+ALTER SEQUENCE event_id_seq OWNED BY event.id;
+
+
+--
+-- Name: items; Type: TABLE; Schema: public; Owner: dndjournal
+--
+
+CREATE TABLE items (
+    id integer NOT NULL,
+    text character varying(40) NOT NULL,
+    complete boolean
+);
+
+
+ALTER TABLE items OWNER TO dndjournal;
+
+--
+-- Name: items_id_seq; Type: SEQUENCE; Schema: public; Owner: dndjournal
+--
+
+CREATE SEQUENCE items_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE items_id_seq OWNER TO dndjournal;
+
+--
+-- Name: items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: dndjournal
+--
+
+ALTER SEQUENCE items_id_seq OWNED BY items.id;
+
+
+--
+-- Name: skilltree; Type: TABLE; Schema: public; Owner: dndjournal
+--
+
+CREATE TABLE skilltree (
+    id integer NOT NULL,
+    character_id integer,
+    appraiserank smallint,
+    appraisemisc smallint,
+    balancerank smallint,
+    bluffrank smallint,
+    climbrank smallint,
+    concentrationrank smallint,
+    craftrank smallint,
+    decipher_scriptrank smallint,
+    diplomacyrank smallint,
+    disable_devicerank smallint,
+    disguiserank smallint,
+    escape_artistrank smallint,
+    forgeryrank smallint,
+    gather_informationrank smallint,
+    handle_animalrank smallint,
+    healrank smallint,
+    hiderank smallint,
+    intimidaterank smallint,
+    jumprank smallint,
+    knowledge_arcanarank smallint,
+    knowledge_geographyrank smallint,
+    knowledge_architecture_and_engineeringrank smallint,
+    knowledge_dungeoneeringrank smallint,
+    knowledge_historyrank smallint,
+    knowledge_localrank smallint,
+    knowledge_naturerank smallint,
+    knowledge_nobility_and_royaltyrank smallint,
+    knowledge_religionrank smallint,
+    knowledge_the_planesrank smallint,
+    listenrank smallint,
+    move_silentlyrank smallint,
+    open_lockrank smallint,
+    performrank smallint,
+    professionrank smallint,
+    riderank smallint,
+    searchrank smallint,
+    sense_motiverank smallint,
+    sleight_of_handrank smallint,
+    speak_languagerank smallint,
+    spellcraftrank smallint,
+    spotrank smallint,
+    survivalrank smallint,
+    swimrank smallint,
+    tumblerank smallint,
+    use_magic_devicerank smallint,
+    use_roperank smallint
+);
+
+
+ALTER TABLE skilltree OWNER TO dndjournal;
+
+--
+-- Name: skilltree_id_seq; Type: SEQUENCE; Schema: public; Owner: dndjournal
+--
+
+CREATE SEQUENCE skilltree_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE skilltree_id_seq OWNER TO dndjournal;
+
+--
+-- Name: skilltree_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: dndjournal
+--
+
+ALTER SEQUENCE skilltree_id_seq OWNED BY skilltree.id;
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: dndjournal
+--
+
+ALTER TABLE ONLY "character" ALTER COLUMN id SET DEFAULT nextval('character_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: dndjournal
+--
+
+ALTER TABLE ONLY event ALTER COLUMN id SET DEFAULT nextval('event_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: dndjournal
+--
+
+ALTER TABLE ONLY items ALTER COLUMN id SET DEFAULT nextval('items_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: dndjournal
+--
+
+ALTER TABLE ONLY skilltree ALTER COLUMN id SET DEFAULT nextval('skilltree_id_seq'::regclass);
+
+
+--
+-- Data for Name: character; Type: TABLE DATA; Schema: public; Owner: dndjournal
+--
+
+COPY "character" (id, race, name) FROM stdin;
+0	dwarf	Hallgrim
+1	gnome	Dendril
+2	half-orc	Loc
+4	elf	Slinder
+3	human	Garrick
+\.
+
+
+--
+-- Name: character_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dndjournal
+--
+
+SELECT pg_catalog.setval('character_id_seq', 4, true);
+
+
+--
+-- Data for Name: event; Type: TABLE DATA; Schema: public; Owner: dndjournal
+--
+
+COPY event (id, year, milliseconds, title, description) FROM stdin;
+1	1374	25488000000	First Event Ever	This is just a test event. I want to see how it looks on your face
+2	1374	25488000000	Mili banka på døra	Mili sto der med leppestift og WOW så boom boom
+3	1374	26697600000	Jørn har bursdag	WoA so fan
+\.
+
+
+--
+-- Name: event_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dndjournal
+--
+
+SELECT pg_catalog.setval('event_id_seq', 3, true);
+
+
+--
+-- Data for Name: items; Type: TABLE DATA; Schema: public; Owner: dndjournal
+--
+
+COPY items (id, text, complete) FROM stdin;
+2	test	f
+4	full	t
+1	test	t
+\.
+
+
+--
+-- Name: items_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dndjournal
+--
+
+SELECT pg_catalog.setval('items_id_seq', 4, true);
+
+
+--
+-- Data for Name: skilltree; Type: TABLE DATA; Schema: public; Owner: dndjournal
+--
+
+COPY skilltree (id, character_id, appraiserank, appraisemisc, balancerank, bluffrank, climbrank, concentrationrank, craftrank, decipher_scriptrank, diplomacyrank, disable_devicerank, disguiserank, escape_artistrank, forgeryrank, gather_informationrank, handle_animalrank, healrank, hiderank, intimidaterank, jumprank, knowledge_arcanarank, knowledge_geographyrank, knowledge_architecture_and_engineeringrank, knowledge_dungeoneeringrank, knowledge_historyrank, knowledge_localrank, knowledge_naturerank, knowledge_nobility_and_royaltyrank, knowledge_religionrank, knowledge_the_planesrank, listenrank, move_silentlyrank, open_lockrank, performrank, professionrank, riderank, searchrank, sense_motiverank, sleight_of_handrank, speak_languagerank, spellcraftrank, spotrank, survivalrank, swimrank, tumblerank, use_magic_devicerank, use_roperank) FROM stdin;
+\.
+
+
+--
+-- Name: skilltree_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dndjournal
+--
+
+SELECT pg_catalog.setval('skilltree_id_seq', 1, false);
+
+
+--
+-- Name: character_pkey; Type: CONSTRAINT; Schema: public; Owner: dndjournal
+--
+
+ALTER TABLE ONLY "character"
+    ADD CONSTRAINT character_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: event_pkey; Type: CONSTRAINT; Schema: public; Owner: dndjournal
+--
+
+ALTER TABLE ONLY event
+    ADD CONSTRAINT event_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: items_pkey; Type: CONSTRAINT; Schema: public; Owner: dndjournal
+--
+
+ALTER TABLE ONLY items
+    ADD CONSTRAINT items_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: skilltree_pkey; Type: CONSTRAINT; Schema: public; Owner: dndjournal
+--
+
+ALTER TABLE ONLY skilltree
+    ADD CONSTRAINT skilltree_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: skilltree_character_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: dndjournal
+--
+
+ALTER TABLE ONLY skilltree
+    ADD CONSTRAINT skilltree_character_id_fkey FOREIGN KEY (character_id) REFERENCES "character"(id);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

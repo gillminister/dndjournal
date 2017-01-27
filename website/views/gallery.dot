@@ -1,0 +1,184 @@
+---
+layout: materialize_base.dot
+title: KjetIll - Galleri
+---
+
+[[##pagestyle:
+<link rel="stylesheet" type="text/css" href="stylesheets/materialize.override.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/home.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/gallery.css">
+#]]
+
+[[##javascript:
+<script src="lazyload/js/lazyload.min.js"></script>
+#]]
+
+[[##extranav:
+<nav class="blue darken-4" role="navigation">
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs blue darken-4">
+        <li class="tab col"><a class="active grey-text text-lighten-5" href="#karikaturer">Karikaturer</a></li>
+        <li class="tab col"><a class="grey-text text-lighten-5" href="#boker">Bøker</a></li>
+        <li class="tab col"><a class="grey-text text-lighten-5" href="#bedriftsoppdrag">Bedriftsoppdrag</a></li>
+        <li class="tab col"><a class="grey-text text-lighten-5" href="#foto">Foto</a></li>
+        <li class="tab col"><a class="grey-text text-lighten-5" href="#fugler-og-dyr">Fugler og dyr</a></li>
+        <li class="tab col"><a class="grey-text text-lighten-5" href="#aviser">Aviser</a></li>
+        <li class="tab col"><a class="grey-text text-lighten-5" href="#rare-dyr">Rare dyr</a></li>
+        <li class="tab col"><a class="grey-text text-lighten-5" href="#strektegninger">Strektegninger</a></li>
+        <li class="tab col"><a class="grey-text text-lighten-5" href="#logo">Logo</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+#]]
+
+
+
+[[##pagecontent:
+
+
+  <script type="text/javascript" src="js/gallery-init.js"></script>
+
+
+
+
+<div id="aviser">
+  <div class="row">
+    [[~ model.aviserPaths :value:index]]
+    <div class="col s6 m4 l3">
+      <div class="card">
+        <div class="card-image">
+          <a class="fancybox" rel="aviser" href="[[=value.fullimage]]"><img src="[[=value.thumbnail]]" alt="" /></a>
+        </div>
+      </div>
+    </div>
+    [[~]]
+  </div>
+</div>
+
+<div id="bedriftsoppdrag">
+  <div class="row">
+    [[~ model.bedriftsoppdragPaths :value:index]]
+    <div class="col s6 m4 l3">
+      <div class="card">
+        <div class="card-image">
+          <a class="fancybox" rel="bedriftsoppdrag" href="[[=value.fullimage]]"><img src="[[=value.thumbnail]]" alt="" /></a>
+        </div>
+      </div>
+    </div>
+    [[~]]
+  </div>
+</div>
+
+<div id="boker">
+  <div class="row">
+    [[~ model.bokerPaths :value:index]]
+    <div class="col s6 m4 l3">
+      <div class="card">
+        <div class="card-image">
+          <a class="fancybox" rel="boker" href="[[=value.fullimage]]"><img src="[[=value.thumbnail]]" alt="" /></a>
+        </div>
+      </div>
+    </div>
+    [[~]]
+  </div>
+</div>
+
+<div id="foto">
+  <div class="row">
+    [[~ model.fotoPaths :value:index]]
+    <div class="col s6 m4 l3">
+      <div class="card">
+        <div class="card-image">
+          <a class="fancybox" rel="foto" href="[[=value.fullimage]]"><img src="[[=value.thumbnail]]" alt="" /></a>
+        </div>
+      </div>
+    </div>
+    [[~]]
+  </div>
+</div>
+
+<div id="fugler-og-dyr">
+  <div class="row">
+    [[~ model.fuglerPaths :value:index]]
+    <div class="col s6 m4 l3">
+      <div class="card">
+        <div class="card-image">
+          <a class="fancybox" rel="fugler-og-dyr" href="[[=value.fullimage]]"><img src="[[=value.thumbnail]]" alt="" /></a>
+        </div>
+      </div>
+    </div>
+    [[~]]
+  </div>
+</div>
+
+<div id="karikaturer">
+  <div class="row">
+    [[~ model.karikaturerPaths :value:index]]
+    <div class="col s6 m4 l3">
+      <div class="card">
+        <div class="card-image">
+          <a class="fancybox" rel="karikaturer" href="[[=value.fullimage]]"><img src="[[=value.thumbnail]]" alt="" /></a>
+        </div>
+      </div>
+    </div>
+    [[~]]
+  </div>
+</div>
+
+<div id="logo">
+  <div class="row">
+    [[~ model.logoPaths :value:index]]
+    <div class="col s6 m4 l3">
+      <div class="card">
+        <div class="card-image">
+          <a class="fancybox" rel="logo" href="[[=value.fullimage]]"><img src="[[=value.thumbnail]]" alt="" /></a>
+        </div>
+      </div>
+    </div>
+    [[~]]
+  </div>
+</div>
+
+<div id="rare-dyr">
+  <div class="row">
+    [[~ model.dyrPaths :value:index]]
+    <div class="col s6 m4 l3">
+      <div class="card">
+        <div class="card-image">
+          <a class="fancybox" rel="rare-dyr" href="[[=value.fullimage]]"><img src="[[=value.thumbnail]]" alt="" /></a>
+        </div>
+      </div>
+    </div>
+    [[~]]
+  </div>
+</div>
+
+<div id="strektegninger">
+  <div class="row">
+    [[~ model.strektegningerPaths :value:index]]
+    <div class="col s6 m4 l3">
+      <div class="card">
+        <div class="card-image">
+          <a class="fancybox" rel="strektegninger" href="[[=value.fullimage]]"><img src="[[=value.thumbnail]]" alt="" /></a>
+        </div>
+      </div>
+    </div>
+    [[~]]
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  $(function() {
+    $(".fancybox").fancybox();
+  });
+
+  [[~ model.aviserPaths :value:index]]
+    console.log("[[=value.fullimage]]");
+      console.log("[[=value.thumbnail]]");
+  [[~]]
+</script>
+#]]

@@ -1,0 +1,32 @@
+---
+layout: materialize_base.dot
+title: KjetIll
+---
+
+[[##pagestyle:
+<link rel="stylesheet" type="text/css" href="stylesheets/materialize.override.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/home.css">
+#]]
+
+[[##javascript:
+
+#]]
+
+[[##extranav:
+<nav class="blue darken-4" role="navigation">
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs blue darken-4">
+        <li class="tab col tabs-fixed-width s6 m3 l2"><a class="active grey-text text-lighten-5" href="#kategorier">Kategorier</a></li>
+        <li class="tab col tabs-fixed-width s6 m3 l2"><a class="grey-text text-lighten-5" href="#tegneren">Om tegneren</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+#]]
+
+[[##pagecontent:
+<div id="FORP">
+  <a href="derp">derp</a>
+</div>
+#]]

@@ -1,0 +1,22 @@
+<footer class="page-footer blue darken-3">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Kjetil Strand</h5>
+        <p class="grey-text text-lighten-4">Illustratør, fotograf og grafisk designer. Erfaren Trønder.</p>
+
+
+      </div>
+      <div class="col l3 s12">
+
+        <div class="contact"><i class="material-icons">email</i> <a href="mailto:kjetstra@online.no">kjetstra@online.no</a></div>
+        <div class="contact"><i class="material-icons">language</i> <a href="http://www.kjetill.no">kjetill.no</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    Laget for KJETIL STRAND
+    </div>
+  </div>
+</footer>
