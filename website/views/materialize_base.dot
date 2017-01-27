@@ -25,11 +25,17 @@
 
   <!-- CSS  -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+
   <link rel="stylesheet" href="materialize/css/materialize.css" type="text/css" media="screen,projection"/>
   <link rel="stylesheet" href="materialize/css/materialize.override.css" type="text/css" media="screen,projection"/>
+
   <link rel="stylesheet" href="fancybox/jquery.fancybox.css" type="text/css" media="screen" >
   <link rel="stylesheet" href="fancybox/helpers/jquery.fancybox-buttons.css" type="text/css" media="screen" />
   <link rel="stylesheet" href="fancybox/helpers/jquery.fancybox-thumbs.css" type="text/css" media="screen" />
+
+  <link rel="stylesheet" href="alertify/css/alertify.min.css" type="text/css" media="screen,projection"/>
+  <link rel="stylesheet" href="alertify/css/themes/default.min.css" type="text/css" media="screen,projection"/>
+
   <link rel="stylesheet" href="stylesheets/base.css" type="text/css" media="screen,projection"/>
 
   [[= layout.pagestyle]]
@@ -40,11 +46,11 @@
   <script src="materialize/js/init.js"></script>
 
   <script type="text/javascript" src="fancybox/jquery.fancybox.pack.js"></script>
-
   <script type="text/javascript" src="fancybox/helpers/jquery.fancybox-buttons.js"></script>
   <script type="text/javascript" src="fancybox/helpers/jquery.fancybox-media.js"></script>
-
   <script type="text/javascript" src="fancybox/helpers/jquery.fancybox-thumbs.js"></script>
+
+  <script type="text/javascript" src="alertify/alertify.min.js"></script>
 
   [[= layout.javascript]]
 </head>
@@ -58,7 +64,7 @@
   </div>
 
 
-  [[= partial('footer.dot') ]]
+  <!-- [[= partial('footer.dot') ]] -->
 
 
 

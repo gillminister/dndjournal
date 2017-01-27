@@ -6,11 +6,16 @@ var express           = require('express'),
     bodyParser        = require('body-parser'),
     sass              = require('node-sass'),
     sassMiddleware    = require('node-sass-middleware'),
-    bourbon           = require('node-bourbon');
+    bourbon           = require('node-bourbon'),
+    multer            = require('multer');
 
 
 var routes = require('./routes/index');
 var dbAPI = require('./routes/api-db');
+
+
+
+
 
 var app = express();
 var engine = require('express-dot-engine');
@@ -20,11 +25,15 @@ app.engine('dot', engine.__express);
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'dot');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(favicon(path.join(__dirname, 'public/favicon', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+// app.use(multer()); // for parsing multipart/form-data
+
 app.use(cookieParser());
 
 // adding the sass middleware
@@ -36,16 +45,6 @@ app.use(
         debug: true
     })
 );
-
-// adding compass middleware
-/*app.use(
-  compassMiddleware({
-    css: path.join(__dirname, 'public/stylesheets'),
-    sass: path.join(__dirname, 'sass'),
-    project: path.join(__dirname, 'public')
-  })
-);*/
-
 
 // include bourbon with sass
 sass.render({
@@ -62,10 +61,14 @@ sass.render({
   outputStyle: 'compressed'
 });
 
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/', routes);
 app.use('/api/', dbAPI);
+
+var durrdb = require('./queries/character-queries');
+
+app.post('/api/characters', durrdb.createCharacter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

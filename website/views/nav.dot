@@ -1,8 +1,9 @@
+<!--<nav class="blue darken-3" role="navigation">-->
 <nav class="blue darken-3" role="navigation">
 
 
   <div class="nav-wrapper container">
-    <a id="logo-container" href="/" class="brand-logo"><img src="images/reinlogo.svg"><span class="logo-text hide-on-med-and-down">KJETILL</span></a>
+    <a id="logo-container" href="/" class="brand-logo"><img src="images/reinlogo.svg"><span class="logo-text hide-on-med-and-down">DnDJournal</span></a>
     <a href="#" data-activates="mobile-navpanel" class="button-collapse"><i class="material-icons">menu</i></a>
 
     <ul id="gallery-dropdown" class="dropdown-content">
@@ -21,14 +22,14 @@
 
 
     <ul class="right hide-on-med-and-down">
-      <li><a href="/">Hjem</a></li>
-      <li><a href="/galleri">Galleri</a></li>
+      <li><a href="/">Syke</a></li>
+      <li><a href="/galleri">Faen</a></li>
       <!--<li><a class="dropdown-button" href="#!" data-activates="gallery-dropdown">Galleri<i class="material-icons right">arrow_drop_down</i></a></li>-->
     </ul>
 
     <ul class="side-nav" id="mobile-navpanel">
-      <li><a class="waves-effect" href="/">Hjem</a></li>
-      <li><a class="dropdown-button" href="#!" data-activates="gallery-dropdown">Galleri<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a class="waves-effect" href="/">Syke</a></li>
+      <li><a class="dropdown-button" href="#!" data-activates="gallery-dropdown">Faen<i class="material-icons right">arrow_drop_down</i></a></li>
     </ul>
   </div>
 </nav>

@@ -1,6 +1,6 @@
 ---
 layout: materialize_base.dot
-title: KjetIll
+title: DnDJournal
 ---
 
 [[##pagestyle:
@@ -17,8 +17,8 @@ title: KjetIll
   <div class="row">
     <div class="col s12">
       <ul class="tabs blue darken-4">
-        <li class="tab col tabs-fixed-width s6 m3 l2"><a class="active grey-text text-lighten-5" href="#kategorier">Kategorier</a></li>
-        <li class="tab col tabs-fixed-width s6 m3 l2"><a class="grey-text text-lighten-5" href="#tegneren">Om tegneren</a></li>
+        <li class="tab col tabs-fixed-width s6 m3 l2"><a class="active grey-text text-lighten-5" href="#kategorier">Balle</a></li>
+        <li class="tab col tabs-fixed-width s6 m3 l2"><a class="grey-text text-lighten-5" href="#tegneren">Tak</a></li>
       </ul>
     </div>
   </div>
@@ -26,7 +26,18 @@ title: KjetIll
 #]]
 
 [[##pagecontent:
-<div id="FORP">
-  <a href="derp">derp</a>
+<div class="row">
+  <div id="FORP" class="col l8">
+    <a href="derp">derp</a>
+  </div>
+  <div id="form" class="col l4">
+      <label>Name<input type="text" id="charnameinput" name="name"></input></label>
+      <input type="number" name="id" value="4"></input>
+      <input type="text" name="race" value="human"></input>
+      <input type="text" name="class" value="fighter"></input>
+      <input type="submit" value="Lagre" onclick="balleballe()"></input>
+  </div>
 </div>
+
+<script src="js/indextesting.js"></script>
 #]]

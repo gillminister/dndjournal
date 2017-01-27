@@ -100,7 +100,7 @@
   font-style: normal; }
 
 body {
-  background-color: #fff;
+  background: url("//static.wallhaven.cc/images/layout/blue-gradients.020-wh.jpg") no-repeat fixed center top/cover, #171717 url("//static.wallhaven.cc/images/layout/bg-dark-grain.png") repeat scroll left top !important;
   font: 100% CooperHewitt;
   font-weight: 300;
   color: #333;
