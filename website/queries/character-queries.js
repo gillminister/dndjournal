@@ -53,18 +53,8 @@ function getSingleCharacter(req, res, next) {
 }
 
 function createCharacter(req, res, next) {
-  // var obj = {};
-	// console.log('body: ' + JSON.stringify(req.body));
-	// res.send("bollocks2");
-	console.log(req.body.name)
-	console.log(req.body.race)
-  // res.status(200)
-  //   .json({
-  //     status: 'success',
-  //     message: 'Inserted one character'
-  //   });
-  db.none("insert into character (name, race)" +
-      "values(${name}, ${race})", req.body)
+  db.none("insert into character (name, race, class)" +
+      "values(${name}, ${race}, ${class})", req.body)
     .then(function () {
       res.status(200)
         .json({

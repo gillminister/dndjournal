@@ -31,11 +31,58 @@ title: Westplate
     <a href="derp">derp</a>
   </div>
   <div id="new_character_form" class="col l4">
-      <label>Name<input type="text" id="charnameinput" name="name"></input></label>
-      <input type="number" name="id" value="4"></input>
-      <input type="text" name="race" value="human"></input>
-      <input type="text" name="class" value="fighter"></input>
-      <input type="submit" value="Lagre" onclick="balleballe()"></input>
+    <div class="row">
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="name" name="name" type="text" class="validate">
+          <label for="name">Name</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <select name="race">
+            <option value="" disabled selected>Choose race</option>
+            <option value="human">Human</option>
+            <option value="elf">Elf</option>
+            <option value="half-elf">Half-Elf</option>
+            <option value="dwarf">Dwarf</option>
+            <option value="half-orc">Half-Orc</option>
+            <option value="gnome">Gnome</option>
+            <option value="halfling">Halfling</option>
+          </select>
+          <label>Race</label>
+        </div>
+
+        <div class="input-field col s6">
+          <select name="class">
+            <option value="" disabled selected>Choose class</option>
+            <option value="barbarian">Barbarian</option>
+            <option value="bard">Bard</option>
+            <option value="cleric">Cleric</option>
+            <option value="druid">Druid</option>
+            <option value="fighter">Fighter</option>
+            <option value="monk">Monk</option>
+            <option value="paladin">Paladin</option>
+            <option value="ranger">Ranger</option>
+            <option value="rogue">Rogue</option>
+            <option value="sorcerer">Sorcerer</option>
+            <option value="wizard">Wizard</option>
+          </select>
+          <label>Class</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <button class="btn waves-effect waves-light" onclick="balleballe()">Create character
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
 

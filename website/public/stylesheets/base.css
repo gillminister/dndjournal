@@ -103,13 +103,13 @@ body {
   background: url("../images/blue-gradients.020-wh.jpg") no-repeat fixed center top/cover, #171717 url("../images/bg-dark-grain.png") repeat scroll left top !important;
   font: 100% CooperHewitt;
   font-weight: 300;
-  color: #333;
+  color: #fff;
   margin: 0; }
 
 .logo-text {
   position: absolute;
-  margin-left: 8pt;
-  margin-bottom: 5pt; }
+  margin-left: 14pt;
+  bottom: 9pt; }
 
 .contact {
   display: flex;
