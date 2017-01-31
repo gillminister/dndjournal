@@ -1,36 +1,34 @@
-<!--<nav class="blue darken-3" role="navigation">-->
-<nav class="blue darken-3" role="navigation">
+<!--<nav class="green darken-3" role="navigation">-->
+<nav class="green darken-3" role="navigation">
 
 
   <div class="nav-wrapper container">
-  
+
     <a id="logo-container" href="/" class="brand-logo valign"><img src="images/dndlogo.svg"><span class="logo-text hide-on-med-and-down">Westplate</span></a>
     <a href="#" data-activates="mobile-navpanel" class="button-collapse"><i class="material-icons">menu</i></a>
 
-    <ul id="gallery-dropdown" class="dropdown-content">
-      <li><a class="waves-effect" href="/galleri#aviser">Aviser</a></li>
-      <li><a class="waves-effect" href="/galleri#boker">Bøker</a></li>
-      <li><a class="waves-effect" href="/galleri#strektegninger">Strektegninger</a></li>
-      <li class="divider"></li>
-      <li><a class="waves-effect" href="/galleri#bedrift">Bedriftsoppdrag</a></li>
-      <li><a class="waves-effect" href="/galleri#logo">Logo</a></li>
-      <li class="divider"></li>
-      <li><a class="waves-effect" href="/galleri#foto">Foto</a></li>
-      <li><a class="waves-effect" href="/galleri#fugler-og-dyr">Fugler og dyr</a></li>
-      <li><a class="waves-effect" href="/galleri#karikaturer">Karikaturer</a></li>
-      <li><a class="waves-effect" href="/galleri#rare-dyr">Rare dyr</a></li>
+    <ul id="character-dropdown" class="dropdown-content">
+      <li><a class="waves-effect" href="/character#bargrim">Bargrim / Eyra</a></li>
+      <li><a class="waves-effect" href="/character#garrick">Garrick</a></li>
+      <li><a class="waves-effect" href="/character#grigor">Grigor</a></li>
+      <li><a class="waves-effect" href="/character#gondol">Gondol</a></li>
+      <li><a class="waves-effect" href="/character#hector">Hector</a></li>
+      <li><a class="waves-effect" href="/character#zalan">Zalan</a></li>
+      <li><a class="waves-effect" href="/character#slinder">Slinder</a></li>
     </ul>
 
 
     <ul class="right hide-on-med-and-down">
-      <li><a href="/">Syke</a></li>
-      <li><a href="/galleri">Faen</a></li>
-      <!--<li><a class="dropdown-button" href="#!" data-activates="gallery-dropdown">Galleri<i class="material-icons right">arrow_drop_down</i></a></li>-->
+      <li><a href="/character">Character</a></li>
+      <li><a href="/story">Story</a></li>
+      <li><a href="/map">Map</a></li>
     </ul>
 
     <ul class="side-nav" id="mobile-navpanel">
-      <li><a class="waves-effect" href="/">Syke</a></li>
-      <li><a class="dropdown-button" href="#!" data-activates="gallery-dropdown">Faen<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a class="waves-effect" href="/story">Story</a></li>
+      <li><a class="waves-effect" href="/map">Map</a></li>
+      <li class="divider"></li>
+      <li><a class="dropdown-button" href="#!" data-activates="character-dropdown">Character<i class="material-icons right">arrow_drop_down</i></a></li>
     </ul>
   </div>
 </nav>

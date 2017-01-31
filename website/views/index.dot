@@ -13,78 +13,61 @@ title: Westplate
 #]]
 
 [[##extranav:
-<nav class="blue darken-4" role="navigation">
-  <div class="row">
-    <div class="col s12">
-      <ul class="tabs blue darken-4">
-        <li class="tab col tabs-fixed-width s6 m3 l2"><a class="active grey-text text-lighten-5" href="#kategorier">Balle</a></li>
-        <li class="tab col tabs-fixed-width s6 m3 l2"><a class="grey-text text-lighten-5" href="#tegneren">Tak</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+
 #]]
 
 [[##pagecontent:
-<div class="row">
-  <div id="FORP" class="col l8">
-    <a href="derp">derp</a>
-  </div>
-  <div id="new_character_form" class="col l4">
+
     <div class="row">
 
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="name" name="name" type="text" class="validate">
-          <label for="name">Name</label>
+      <div class="col s12 m4 l4" onclick="window.location='character'">
+        <div class="card horizontal small blue darken-4">
+          <div class="card-image">
+            <img src="images/frontpage/character.jpg">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <h5>Character </h5>
+              <p>The well familiar personal character sheet</p>
+            </div>
+            <div class="card-action">
+              <a href="/character">Visit</a>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="input-field col s6">
-          <select name="race">
-            <option value="" disabled selected>Choose race</option>
-            <option value="human">Human</option>
-            <option value="elf">Elf</option>
-            <option value="half-elf">Half-Elf</option>
-            <option value="dwarf">Dwarf</option>
-            <option value="half-orc">Half-Orc</option>
-            <option value="gnome">Gnome</option>
-            <option value="halfling">Halfling</option>
-          </select>
-          <label>Race</label>
-        </div>
-
-        <div class="input-field col s6">
-          <select name="class">
-            <option value="" disabled selected>Choose class</option>
-            <option value="barbarian">Barbarian</option>
-            <option value="bard">Bard</option>
-            <option value="cleric">Cleric</option>
-            <option value="druid">Druid</option>
-            <option value="fighter">Fighter</option>
-            <option value="monk">Monk</option>
-            <option value="paladin">Paladin</option>
-            <option value="ranger">Ranger</option>
-            <option value="rogue">Rogue</option>
-            <option value="sorcerer">Sorcerer</option>
-            <option value="wizard">Wizard</option>
-          </select>
-          <label>Class</label>
+      <div class="col s12 m4 l4" onclick="alertify.error('Not yet implemented')">
+        <div class="card horizontal small blue darken-4">
+          <div class="card-image">
+            <img src="images/frontpage/story.jpg">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <h5>Story</h5>
+              <p>The story in chronological order</p>
+            </div>
+            <div class="card-action">
+              <a href="/story">Visit</a>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col s12">
-          <button class="btn waves-effect waves-light" onclick="balleballe()">Create character
-            <i class="material-icons right">send</i>
-          </button>
+      <div class="col s12 m4 l4" onclick="alertify.error('Not yet implemented')"">
+        <div class="card horizontal small blue darken-4">
+          <div class="card-image">
+            <img src="images/frontpage/map.jpg">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <h5>Map</h5>
+              <p>The land of the (un)fortunate heroes</p>
+            </div>
+            <div class="card-action">
+              <a href="/map">Visit</a>
+            </div>
+          </div>
         </div>
       </div>
-
-    </div>
-  </div>
-</div>
-
-<script src="js/indextesting.js"></script>
 #]]

@@ -4,10 +4,12 @@
   // margin: 10px auto;
   height: 100%;
   box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.7);
+
+
 }
 
-.card {
-  height: 100%;
+.card:hover {
+  cursor: pointer;
 }
 
 .card .card-image img, {
