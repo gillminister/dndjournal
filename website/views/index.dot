@@ -1,6 +1,6 @@
 ---
 layout: materialize_base.dot
-title: DnDJournal
+title: Westplate
 ---
 
 [[##pagestyle:
@@ -30,7 +30,7 @@ title: DnDJournal
   <div id="FORP" class="col l8">
     <a href="derp">derp</a>
   </div>
-  <div id="form" class="col l4">
+  <div id="new_character_form" class="col l4">
       <label>Name<input type="text" id="charnameinput" name="name"></input></label>
       <input type="number" name="id" value="4"></input>
       <input type="text" name="race" value="human"></input>

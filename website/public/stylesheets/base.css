@@ -1,40 +1,40 @@
 /* Thin */
 @font-face {
   font-family: "CooperHewitt";
-  src: url(fonts/CooperHewitt/CooperHewitt-Thin.otf) format("truetype");
+  src: url(../fonts/CooperHewitt/CooperHewitt-Thin.otf) format("truetype");
   font-weight: 100;
   font-style: normal; }
 
 @font-face {
   font-family: "CooperHewitt";
-  src: url(fonts/CooperHewitt/CooperHewitt-ThinItalic.otf) format("truetype");
+  src: url(../fonts/CooperHewitt/CooperHewitt-ThinItalic.otf) format("truetype");
   font-weight: 100;
   font-style: italic; }
 
 /* Light */
 @font-face {
   font-family: "CooperHewitt";
-  src: url(fonts/CooperHewitt/CooperHewitt-Light.otf) format("truetype");
+  src: url(../fonts/CooperHewitt/CooperHewitt-Light.otf) format("truetype");
   font-weight: 300;
   font-style: normal; }
 
 @font-face {
   font-family: "CooperHewitt";
-  src: url(fonts/CooperHewitt/CooperHewitt-LightItalic.otf) format("truetype");
+  src: url(../fonts/CooperHewitt/CooperHewitt-LightItalic.otf) format("truetype");
   font-weight: 300;
   font-style: italic; }
 
 /* Book NORMAL */
 @font-face {
   font-family: "CooperHewitt";
-  src: url(fonts/CooperHewitt/CooperHewitt-Book.otf) format("truetype");
+  src: url(../fonts/CooperHewitt/CooperHewitt-Book.otf) format("truetype");
   font-weight: normal;
   /* same as 400 */
   font-style: normal; }
 
 @font-face {
   font-family: "CooperHewitt";
-  src: url(fonts/CooperHewitt/CooperHewitt-BookItalic.otf) format("truetype");
+  src: url(../fonts/CooperHewitt/CooperHewitt-BookItalic.otf) format("truetype");
   font-weight: normal;
   /* same as 400 */
   font-style: italic; }
@@ -42,40 +42,40 @@
 /* Medium */
 @font-face {
   font-family: "CooperHewitt";
-  src: url(fonts/CooperHewitt/CooperHewitt-Medium.otf) format("truetype");
+  src: url(../fonts/CooperHewitt/CooperHewitt-Medium.otf) format("truetype");
   font-weight: 500;
   font-style: normal; }
 
 @font-face {
   font-family: "CooperHewitt";
-  src: url(fonts/CooperHewitt/CooperHewitt-MediumItalic.otf) format("truetype");
+  src: url(../fonts/CooperHewitt/CooperHewitt-MediumItalic.otf) format("truetype");
   font-weight: 500;
   font-style: italic; }
 
 /* Semibold */
 @font-face {
   font-family: "CooperHewitt";
-  src: url(fonts/CooperHewitt/CooperHewitt-Semibold.otf) format("truetype");
+  src: url(../fonts/CooperHewitt/CooperHewitt-Semibold.otf) format("truetype");
   font-weight: 600;
   font-style: normal; }
 
 @font-face {
   font-family: "CooperHewitt";
-  src: url(fonts/CooperHewitt/CooperHewitt-SemiboldItalic.otf) format("truetype");
+  src: url(../fonts/CooperHewitt/CooperHewitt-SemiboldItalic.otf) format("truetype");
   font-weight: 600;
   font-style: italic; }
 
 /* Bold - BOLD */
 @font-face {
   font-family: "CooperHewitt";
-  src: url(fonts/CooperHewitt/CooperHewitt-Bold.otf) format("truetype");
+  src: url(../fonts/CooperHewitt/CooperHewitt-Bold.otf) format("truetype");
   font-weight: bold;
   /* same as 700 */
   font-style: normal; }
 
 @font-face {
   font-family: "CooperHewitt";
-  src: url(fonts/CooperHewitt/CooperHewitt-BoldItalic.otf) format("truetype");
+  src: url(../fonts/CooperHewitt/CooperHewitt-BoldItalic.otf) format("truetype");
   font-weight: bold;
   /* same as 700 */
   font-style: italic; }
@@ -83,24 +83,24 @@
 /* Heavy */
 @font-face {
   font-family: "CooperHewitt";
-  src: url(fonts/CooperHewitt/CooperHewitt-Heavy.otf) format("truetype");
+  src: url(../fonts/CooperHewitt/CooperHewitt-Heavy.otf) format("truetype");
   font-weight: 900;
   font-style: normal; }
 
 @font-face {
   font-family: "CooperHewitt";
-  src: url(fonts/CooperHewitt/CooperHewitt-HeavyItalic.otf) format("truetype");
+  src: url(../fonts/CooperHewitt/CooperHewitt-HeavyItalic.otf) format("truetype");
   font-weight: 900;
   font-style: italic; }
 
 @font-face {
   font-family: "DIN";
-  src: url(fonts/DIN/din-regular.ttf);
+  src: url(../fonts/DIN/din-regular.ttf);
   font-weight: 400;
   font-style: normal; }
 
 body {
-  background: url("//static.wallhaven.cc/images/layout/blue-gradients.020-wh.jpg") no-repeat fixed center top/cover, #171717 url("//static.wallhaven.cc/images/layout/bg-dark-grain.png") repeat scroll left top !important;
+  background: url("../images/blue-gradients.020-wh.jpg") no-repeat fixed center top/cover, #171717 url("../images/bg-dark-grain.png") repeat scroll left top !important;
   font: 100% CooperHewitt;
   font-weight: 300;
   color: #333;

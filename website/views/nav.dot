@@ -3,7 +3,7 @@
 
 
   <div class="nav-wrapper container">
-    <a id="logo-container" href="/" class="brand-logo"><img src="images/reinlogo.svg"><span class="logo-text hide-on-med-and-down">DnDJournal</span></a>
+    <a id="logo-container" href="/" class="brand-logo"><img src="images/dndlogo.svg"><span class="logo-text hide-on-med-and-down">Westplate</span></a>
     <a href="#" data-activates="mobile-navpanel" class="button-collapse"><i class="material-icons">menu</i></a>
 
     <ul id="gallery-dropdown" class="dropdown-content">

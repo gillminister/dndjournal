@@ -92,15 +92,22 @@ if (app.get('env') === 'development') {
 }
 
 
+
+app.use(function (err, req, res, next) {
+  console.error(err.stack)
+  res.status(500).send(err.message)
+})
+
+
 // production error handler
 // no stacktraces leaked to user
-app.use(function (err, req, res, next) {
-    res.status(err.status || 500)
-        .json({
-            status: 'error',
-            message: err.message
-        });
-});
+// app.use(function (err, req, res, next) {
+//     res.status(err.status || 500)
+//         .json({
+//             status: 'error',
+//             message: err.message
+//         });
+// });
 
 
 module.exports = app;

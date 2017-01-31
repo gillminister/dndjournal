@@ -57,13 +57,14 @@ function createCharacter(req, res, next) {
 	// console.log('body: ' + JSON.stringify(req.body));
 	// res.send("bollocks2");
 	console.log(req.body.name)
+	console.log(req.body.race)
   // res.status(200)
   //   .json({
   //     status: 'success',
   //     message: 'Inserted one character'
   //   });
-  db.none('insert into character(name, race, class)' +
-      'values('+req.body.name+')')
+  db.none("insert into character (name, race)" +
+      "values(${name}, ${race})", req.body)
     .then(function () {
       res.status(200)
         .json({
@@ -72,6 +73,7 @@ function createCharacter(req, res, next) {
         });
     })
     .catch(function (err) {
+      err.message = "Something broke at DB level while trying to insert Character\n\n" + err.message;
       return next(err);
     });
 
