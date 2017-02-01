@@ -12,62 +12,71 @@ title: Westplate
 
 #]]
 
+
+[[##javascript_body:
+  <script src="js/home.js"></script>
+  <script>
+    var userboi = '[[= model.user ]]';
+  </script>
+#]]
+
 [[##extranav:
 
 #]]
 
 [[##pagecontent:
 
-    <div class="row">
+  <div class="row">
 
-      <div class="col s12 m4 l4" onclick="window.location='character'">
-        <div class="card horizontal small blue darken-4">
-          <div class="card-image">
-            <img src="images/frontpage/character.jpg">
+    <div class="col s12 m4 l4" onclick="window.location='character'">
+      <div class="card horizontal small blue darken-4">
+        <div class="card-image">
+          <img src="images/frontpage/character.jpg">
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <h5>Character </h5>
+            <p>The well familiar personal character sheet</p>
           </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <h5>Character </h5>
-              <p>The well familiar personal character sheet</p>
-            </div>
-            <div class="card-action">
-              <a href="/character">Visit</a>
-            </div>
+          <div class="card-action">
+            <a href="/character">Visit</a>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="col s12 m4 l4" onclick="alertify.error('Not yet implemented')">
-        <div class="card horizontal small blue darken-4">
-          <div class="card-image">
-            <img src="images/frontpage/story.jpg">
+    <div class="col s12 m4 l4" onclick="alertify.error('Not yet implemented')">
+      <div class="card horizontal small blue darken-4">
+        <div class="card-image">
+          <img src="images/frontpage/story.jpg">
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <h5>Story</h5>
+            <p>The story in chronological order</p>
           </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <h5>Story</h5>
-              <p>The story in chronological order</p>
-            </div>
-            <div class="card-action">
-              <a href="/story">Visit</a>
-            </div>
+          <div class="card-action">
+            <a href="/story">Visit</a>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="col s12 m4 l4" onclick="alertify.error('Not yet implemented')"">
-        <div class="card horizontal small blue darken-4">
-          <div class="card-image">
-            <img src="images/frontpage/map.jpg">
+    <div class="col s12 m4 l4" onclick="alertify.error('Not yet implemented')"">
+      <div class="card horizontal small blue darken-4">
+        <div class="card-image">
+          <img src="images/frontpage/map.jpg">
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <h5>Map</h5>
+            <p>The land of the (un)fortunate heroes</p>
           </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <h5>Map</h5>
-              <p>The land of the (un)fortunate heroes</p>
-            </div>
-            <div class="card-action">
-              <a href="/map">Visit</a>
-            </div>
+          <div class="card-action">
+            <a href="/map">Visit</a>
           </div>
         </div>
       </div>
+    </div>
+  </div>
 #]]

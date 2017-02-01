@@ -7,7 +7,11 @@ var express           = require('express'),
     sass              = require('node-sass'),
     sassMiddleware    = require('node-sass-middleware'),
     bourbon           = require('node-bourbon'),
-    multer            = require('multer');
+    multer            = require('multer'),
+    flash             = require('connect-flash'),
+    session           = require('express-session'),
+    passport          = require('passport'),
+    memoryStore       = require('session-memory-store')(session);;
 
 
 var routes = require('./routes/index');
@@ -35,6 +39,18 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 // app.use(multer()); // for parsing multipart/form-data
 
 app.use(cookieParser());
+
+
+// session and passport
+app.use(session({
+  name: 'JSESSION',
+  secret: 'BøgeRedetKatolskeKirkeAuschwitz',
+  store: new memoryStore({expires: 86400})
+}));
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
+
 
 // adding the sass middleware
 app.use(

@@ -1,0 +1,31 @@
+---
+layout: materialize_base.dot
+title: Westplate
+---
+
+[[##pagestyle:
+<link rel="stylesheet" type="text/css" href="stylesheets/materialize.override.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/home.css">
+#]]
+
+
+[[##javascript:
+
+#]]
+
+
+[[##javascript_body:
+
+#]]
+
+[[##extranav:
+
+#]]
+
+[[##pagecontent:
+
+  <div class="row">
+
+    HUZZAH
+  </div>
+#]]

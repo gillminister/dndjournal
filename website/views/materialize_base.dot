@@ -57,12 +57,9 @@
     [[= layout.pagecontent ]]
   </div>
 
-
   <!-- [[= partial('footer.dot') ]] -->
 
-
-
-
+  [[= layout.javascript_body]]
 
   </body>
 </html>

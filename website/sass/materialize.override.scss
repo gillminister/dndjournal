@@ -10,9 +10,14 @@
   background-color: #2962ff !important;
 }
 
+nav, .footer-copyright{
+  box-shadow: none !important;
+  background: none !important;
+}
+
 nav{
   margin-top: 25pt;
-  box-shadow: none !important;
+
 }
 
 .green.darken-3, .green.darken-4 {
