@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS class_skill CASCADE;
+
+CREATE TABLE class_skill (
+  character                     INTEGER REFERENCES character(id),
+  class                         character_class_name,
+  skill                         skill_name,
+  rank_points                   SMALLINT,
+  racial_points                 SMALLINT,
+  feats_points                  SMALLINT,
+  synergy_points                SMALLINT,
+  misc_points                   SMALLINT,
+  armor_check_penalty_points    SMALLINT,
+
+  PRIMARY KEY(character, class, skill)
+);

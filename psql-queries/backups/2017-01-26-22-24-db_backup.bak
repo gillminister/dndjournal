@@ -14,14 +14,14 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner:
 --
 
 CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner:
 --
 
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
@@ -30,10 +30,10 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 SET search_path = public, pg_catalog;
 
 --
--- Name: class; Type: TYPE; Schema: public; Owner: dndjournal
+-- Name: character_class_name; Type: TYPE; Schema: public; Owner: westplate
 --
 
-CREATE TYPE class AS ENUM (
+CREATE TYPE character_class_name AS ENUM (
     'barbarian',
     'bard',
     'cleric',
@@ -48,10 +48,10 @@ CREATE TYPE class AS ENUM (
 );
 
 
-ALTER TYPE class OWNER TO dndjournal;
+ALTER TYPE character_class_name OWNER TO westplate;
 
 --
--- Name: feat; Type: TYPE; Schema: public; Owner: dndjournal
+-- Name: feat; Type: TYPE; Schema: public; Owner: westplate
 --
 
 CREATE TYPE feat AS ENUM (
@@ -150,10 +150,10 @@ CREATE TYPE feat AS ENUM (
 );
 
 
-ALTER TYPE feat OWNER TO dndjournal;
+ALTER TYPE feat OWNER TO westplate;
 
 --
--- Name: race; Type: TYPE; Schema: public; Owner: dndjournal
+-- Name: race; Type: TYPE; Schema: public; Owner: westplate
 --
 
 CREATE TYPE race AS ENUM (
@@ -167,14 +167,14 @@ CREATE TYPE race AS ENUM (
 );
 
 
-ALTER TYPE race OWNER TO dndjournal;
+ALTER TYPE race OWNER TO westplate;
 
 SET default_tablespace = '';
 
 SET default_with_oids = false;
 
 --
--- Name: character; Type: TABLE; Schema: public; Owner: dndjournal
+-- Name: character; Type: TABLE; Schema: public; Owner: westplate
 --
 
 CREATE TABLE "character" (
@@ -184,10 +184,10 @@ CREATE TABLE "character" (
 );
 
 
-ALTER TABLE "character" OWNER TO dndjournal;
+ALTER TABLE "character" OWNER TO westplate;
 
 --
--- Name: character_id_seq; Type: SEQUENCE; Schema: public; Owner: dndjournal
+-- Name: character_id_seq; Type: SEQUENCE; Schema: public; Owner: westplate
 --
 
 CREATE SEQUENCE character_id_seq
@@ -198,17 +198,17 @@ CREATE SEQUENCE character_id_seq
     CACHE 1;
 
 
-ALTER TABLE character_id_seq OWNER TO dndjournal;
+ALTER TABLE character_id_seq OWNER TO westplate;
 
 --
--- Name: character_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: dndjournal
+-- Name: character_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: westplate
 --
 
 ALTER SEQUENCE character_id_seq OWNED BY "character".id;
 
 
 --
--- Name: event; Type: TABLE; Schema: public; Owner: dndjournal
+-- Name: event; Type: TABLE; Schema: public; Owner: westplate
 --
 
 CREATE TABLE event (
@@ -220,10 +220,10 @@ CREATE TABLE event (
 );
 
 
-ALTER TABLE event OWNER TO dndjournal;
+ALTER TABLE event OWNER TO westplate;
 
 --
--- Name: event_id_seq; Type: SEQUENCE; Schema: public; Owner: dndjournal
+-- Name: event_id_seq; Type: SEQUENCE; Schema: public; Owner: westplate
 --
 
 CREATE SEQUENCE event_id_seq
@@ -234,17 +234,17 @@ CREATE SEQUENCE event_id_seq
     CACHE 1;
 
 
-ALTER TABLE event_id_seq OWNER TO dndjournal;
+ALTER TABLE event_id_seq OWNER TO westplate;
 
 --
--- Name: event_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: dndjournal
+-- Name: event_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: westplate
 --
 
 ALTER SEQUENCE event_id_seq OWNED BY event.id;
 
 
 --
--- Name: items; Type: TABLE; Schema: public; Owner: dndjournal
+-- Name: items; Type: TABLE; Schema: public; Owner: westplate
 --
 
 CREATE TABLE items (
@@ -254,10 +254,10 @@ CREATE TABLE items (
 );
 
 
-ALTER TABLE items OWNER TO dndjournal;
+ALTER TABLE items OWNER TO westplate;
 
 --
--- Name: items_id_seq; Type: SEQUENCE; Schema: public; Owner: dndjournal
+-- Name: items_id_seq; Type: SEQUENCE; Schema: public; Owner: westplate
 --
 
 CREATE SEQUENCE items_id_seq
@@ -268,20 +268,20 @@ CREATE SEQUENCE items_id_seq
     CACHE 1;
 
 
-ALTER TABLE items_id_seq OWNER TO dndjournal;
+ALTER TABLE items_id_seq OWNER TO westplate;
 
 --
--- Name: items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: dndjournal
+-- Name: items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: westplate
 --
 
 ALTER SEQUENCE items_id_seq OWNED BY items.id;
 
 
 --
--- Name: skilltree; Type: TABLE; Schema: public; Owner: dndjournal
+-- Name: class_skill_list; Type: TABLE; Schema: public; Owner: westplate
 --
 
-CREATE TABLE skilltree (
+CREATE TABLE class_skill_list (
     id integer NOT NULL,
     character_id integer,
     appraiserank smallint,
@@ -333,13 +333,13 @@ CREATE TABLE skilltree (
 );
 
 
-ALTER TABLE skilltree OWNER TO dndjournal;
+ALTER TABLE class_skill_list OWNER TO westplate;
 
 --
--- Name: skilltree_id_seq; Type: SEQUENCE; Schema: public; Owner: dndjournal
+-- Name: class_skill_list_id_seq; Type: SEQUENCE; Schema: public; Owner: westplate
 --
 
-CREATE SEQUENCE skilltree_id_seq
+CREATE SEQUENCE class_skill_list_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -347,45 +347,45 @@ CREATE SEQUENCE skilltree_id_seq
     CACHE 1;
 
 
-ALTER TABLE skilltree_id_seq OWNER TO dndjournal;
+ALTER TABLE class_skill_list_id_seq OWNER TO westplate;
 
 --
--- Name: skilltree_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: dndjournal
+-- Name: class_skill_list_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: westplate
 --
 
-ALTER SEQUENCE skilltree_id_seq OWNED BY skilltree.id;
+ALTER SEQUENCE class_skill_list_id_seq OWNED BY class_skill_list.id;
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: dndjournal
+-- Name: id; Type: DEFAULT; Schema: public; Owner: westplate
 --
 
 ALTER TABLE ONLY "character" ALTER COLUMN id SET DEFAULT nextval('character_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: dndjournal
+-- Name: id; Type: DEFAULT; Schema: public; Owner: westplate
 --
 
 ALTER TABLE ONLY event ALTER COLUMN id SET DEFAULT nextval('event_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: dndjournal
+-- Name: id; Type: DEFAULT; Schema: public; Owner: westplate
 --
 
 ALTER TABLE ONLY items ALTER COLUMN id SET DEFAULT nextval('items_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: dndjournal
+-- Name: id; Type: DEFAULT; Schema: public; Owner: westplate
 --
 
-ALTER TABLE ONLY skilltree ALTER COLUMN id SET DEFAULT nextval('skilltree_id_seq'::regclass);
+ALTER TABLE ONLY class_skill_list ALTER COLUMN id SET DEFAULT nextval('class_skill_list_id_seq'::regclass);
 
 
 --
--- Data for Name: character; Type: TABLE DATA; Schema: public; Owner: dndjournal
+-- Data for Name: character; Type: TABLE DATA; Schema: public; Owner: westplate
 --
 
 COPY "character" (id, race, name) FROM stdin;
@@ -398,14 +398,14 @@ COPY "character" (id, race, name) FROM stdin;
 
 
 --
--- Name: character_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dndjournal
+-- Name: character_id_seq; Type: SEQUENCE SET; Schema: public; Owner: westplate
 --
 
 SELECT pg_catalog.setval('character_id_seq', 4, true);
 
 
 --
--- Data for Name: event; Type: TABLE DATA; Schema: public; Owner: dndjournal
+-- Data for Name: event; Type: TABLE DATA; Schema: public; Owner: westplate
 --
 
 COPY event (id, year, milliseconds, title, description) FROM stdin;
@@ -416,14 +416,14 @@ COPY event (id, year, milliseconds, title, description) FROM stdin;
 
 
 --
--- Name: event_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dndjournal
+-- Name: event_id_seq; Type: SEQUENCE SET; Schema: public; Owner: westplate
 --
 
 SELECT pg_catalog.setval('event_id_seq', 3, true);
 
 
 --
--- Data for Name: items; Type: TABLE DATA; Schema: public; Owner: dndjournal
+-- Data for Name: items; Type: TABLE DATA; Schema: public; Owner: westplate
 --
 
 COPY items (id, text, complete) FROM stdin;
@@ -434,29 +434,29 @@ COPY items (id, text, complete) FROM stdin;
 
 
 --
--- Name: items_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dndjournal
+-- Name: items_id_seq; Type: SEQUENCE SET; Schema: public; Owner: westplate
 --
 
 SELECT pg_catalog.setval('items_id_seq', 4, true);
 
 
 --
--- Data for Name: skilltree; Type: TABLE DATA; Schema: public; Owner: dndjournal
+-- Data for Name: class_skill_list; Type: TABLE DATA; Schema: public; Owner: westplate
 --
 
-COPY skilltree (id, character_id, appraiserank, appraisemisc, balancerank, bluffrank, climbrank, concentrationrank, craftrank, decipher_scriptrank, diplomacyrank, disable_devicerank, disguiserank, escape_artistrank, forgeryrank, gather_informationrank, handle_animalrank, healrank, hiderank, intimidaterank, jumprank, knowledge_arcanarank, knowledge_geographyrank, knowledge_architecture_and_engineeringrank, knowledge_dungeoneeringrank, knowledge_historyrank, knowledge_localrank, knowledge_naturerank, knowledge_nobility_and_royaltyrank, knowledge_religionrank, knowledge_the_planesrank, listenrank, move_silentlyrank, open_lockrank, performrank, professionrank, riderank, searchrank, sense_motiverank, sleight_of_handrank, speak_languagerank, spellcraftrank, spotrank, survivalrank, swimrank, tumblerank, use_magic_devicerank, use_roperank) FROM stdin;
+COPY class_skill_list (id, character_id, appraiserank, appraisemisc, balancerank, bluffrank, climbrank, concentrationrank, craftrank, decipher_scriptrank, diplomacyrank, disable_devicerank, disguiserank, escape_artistrank, forgeryrank, gather_informationrank, handle_animalrank, healrank, hiderank, intimidaterank, jumprank, knowledge_arcanarank, knowledge_geographyrank, knowledge_architecture_and_engineeringrank, knowledge_dungeoneeringrank, knowledge_historyrank, knowledge_localrank, knowledge_naturerank, knowledge_nobility_and_royaltyrank, knowledge_religionrank, knowledge_the_planesrank, listenrank, move_silentlyrank, open_lockrank, performrank, professionrank, riderank, searchrank, sense_motiverank, sleight_of_handrank, speak_languagerank, spellcraftrank, spotrank, survivalrank, swimrank, tumblerank, use_magic_devicerank, use_roperank) FROM stdin;
 \.
 
 
 --
--- Name: skilltree_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dndjournal
+-- Name: class_skill_list_id_seq; Type: SEQUENCE SET; Schema: public; Owner: westplate
 --
 
-SELECT pg_catalog.setval('skilltree_id_seq', 1, false);
+SELECT pg_catalog.setval('class_skill_list_id_seq', 1, false);
 
 
 --
--- Name: character_pkey; Type: CONSTRAINT; Schema: public; Owner: dndjournal
+-- Name: character_pkey; Type: CONSTRAINT; Schema: public; Owner: westplate
 --
 
 ALTER TABLE ONLY "character"
@@ -464,7 +464,7 @@ ALTER TABLE ONLY "character"
 
 
 --
--- Name: event_pkey; Type: CONSTRAINT; Schema: public; Owner: dndjournal
+-- Name: event_pkey; Type: CONSTRAINT; Schema: public; Owner: westplate
 --
 
 ALTER TABLE ONLY event
@@ -472,7 +472,7 @@ ALTER TABLE ONLY event
 
 
 --
--- Name: items_pkey; Type: CONSTRAINT; Schema: public; Owner: dndjournal
+-- Name: items_pkey; Type: CONSTRAINT; Schema: public; Owner: westplate
 --
 
 ALTER TABLE ONLY items
@@ -480,19 +480,19 @@ ALTER TABLE ONLY items
 
 
 --
--- Name: skilltree_pkey; Type: CONSTRAINT; Schema: public; Owner: dndjournal
+-- Name: class_skill_list_pkey; Type: CONSTRAINT; Schema: public; Owner: westplate
 --
 
-ALTER TABLE ONLY skilltree
-    ADD CONSTRAINT skilltree_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY class_skill_list
+    ADD CONSTRAINT class_skill_list_pkey PRIMARY KEY (id);
 
 
 --
--- Name: skilltree_character_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: dndjournal
+-- Name: class_skill_list_character_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: westplate
 --
 
-ALTER TABLE ONLY skilltree
-    ADD CONSTRAINT skilltree_character_id_fkey FOREIGN KEY (character_id) REFERENCES "character"(id);
+ALTER TABLE ONLY class_skill_list
+    ADD CONSTRAINT class_skill_list_character_id_fkey FOREIGN KEY (character_id) REFERENCES "character"(id);
 
 
 --
@@ -508,4 +508,3 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 --
 -- PostgreSQL database dump complete
 --
-
