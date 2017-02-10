@@ -1,0 +1,9 @@
+INSERT INTO character (name, race) VALUES ('Slinder', 'elf');
+INSERT INTO character (name, race) VALUES ('Garrick', 'human');
+INSERT INTO character (name, race) VALUES ('Grigor', 'human');
+INSERT INTO character (name, race) VALUES ('Zalan', 'human');
+INSERT INTO character (name, race) VALUES ('Hector', 'human');
+
+INSERT INTO event (year, milliseconds, title, description) VALUES (1374,	25488000000,	'First Event Ever',	'This is just a test event. I want to see how it looks on your face');
+INSERT INTO event (year, milliseconds, title, description) VALUES (1374,	25488000000,	'Event at same time as First',	'Do not be a dickhead');
+INSERT INTO event (year, milliseconds, title, description) VALUES (1374,	26697600000,	'Later Event',	'So much later');
