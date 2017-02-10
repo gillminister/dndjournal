@@ -85,6 +85,8 @@ app.use('/api/', dbAPI);
 var durrdb = require('./queries/character-queries');
 
 app.post('/api/characters', durrdb.createCharacter);
+app.delete('/api/characters/:id', durrdb.removeCharacter);
+app.put('/api/characters/:id', durrdb.updateCharacter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,13 +1,6 @@
-var promise = require('bluebird');
+// get db connection
+var db = require('./database-connection').db;
 
-var options = {
-  // Initialization Options
-  promiseLib: promise
-};
-
-var pgp = require('pg-promise')(options);
-var connectionString = 'postgres://westplate:furrybananas@localhost:5432/westplate';
-var db = pgp(connectionString);
 
 // add query functions
 

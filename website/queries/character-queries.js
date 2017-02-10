@@ -1,13 +1,6 @@
-var promise = require('bluebird');
+// get db connection
+var db = require('./database-connection').db;
 
-var options = {
-  // Initialization Options
-  promiseLib: promise
-};
-
-var pgp = require('pg-promise')(options);
-var connectionString = 'postgres://westplate:furrybananas@localhost:5432/westplate';
-var db = pgp(connectionString);
 
 // add query functions
 
@@ -66,23 +59,33 @@ function createCharacter(req, res, next) {
       err.message = "Something broke at DB level while trying to insert Character\n\n" + err.message;
       return next(err);
     });
-
 }
 
 function updateCharacter(req, res, next) {
-  db.none('update character set name=$1, race=$2, class=$3 where id=$5',
-    [req.body.name, req.body.race, req.body.class, parseInt(req.params.id)])
+  // create list of attributes to update, based on http put
+  var attributesToUpdate = "";
+  Object.keys(req.body).forEach(
+    function(key){
+      attributesToUpdate += key + "=${" + key + "},"
+    });
+  attributesToUpdate = attributesToUpdate.substring(0,attributesToUpdate.length-1);
+
+  // get provided id
+  var characterID = parseInt(req.params.id);
+
+  // update character
+  db.none(("update character set " + attributesToUpdate + " where id = " + characterID), req.body)
     .then(function () {
       res.status(200)
         .json({
           status: 'success',
-          message: 'Updated character'
+          message: 'Updated character '+ req.body.name
         });
     })
     .catch(function (err) {
+      err.message = "Something broke at DB level while trying to update Character\n\n" + err.message;
       return next(err);
     });
-
 }
 
 function removeCharacter(req, res, next) {

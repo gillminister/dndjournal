@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var app = express();
 
+var dbConnection = require('../queries/database-connection');
 var charDB = require('../queries/character-queries');
 var enumDB = require('../queries/enum-queries');
 
