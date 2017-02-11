@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS campaign CASCADE;
+
+CREATE TABLE campaign (
+  id              SERIAL NOT NULL,
+  title           CHARACTER VARYING(50),
+  description     TEXT,
+  dungeon_master  CHARACTER VARYING(255) REFERENCES user(email),
+  PRIMARY KEY(id)
+);

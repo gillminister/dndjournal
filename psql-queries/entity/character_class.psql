@@ -1,8 +1,9 @@
 DROP TABLE IF EXISTS character_class CASCADE;
 
 CREATE TABLE character_class (
-  character   INTEGER REFERENCES character(id),
-  class       character_class_name,
+  character   INTEGER REFERENCES character(id) NOT NULL,
+  class       character_class_name NOT NULL,
   level       SMALLINT,
+
   PRIMARY KEY(character, class)
 );

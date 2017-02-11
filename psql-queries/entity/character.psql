@@ -1,7 +1,9 @@
 DROP TABLE IF EXISTS character CASCADE;
 
 CREATE TABLE "character" (
-    id serial NOT NULL,
+    id SERIAL NOT NULL,
     race race NOT NULL,
-    name character varying(50)
+    name CHARACTER VARYING(50),
+
+    PRIMARY KEY (id)
 );

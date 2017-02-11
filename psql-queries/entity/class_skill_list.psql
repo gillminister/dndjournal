@@ -1,9 +1,9 @@
 DROP TABLE IF EXISTS class_skill CASCADE;
 
 CREATE TABLE class_skill (
-  character                     INTEGER REFERENCES character(id),
-  class                         character_class_name,
-  skill                         skill_name,
+  character                     INTEGER REFERENCES character(id) NOT NULL,
+  class                         character_class_name NOT NULL,
+  skill                         skill_name NOT NULL,
   rank_points                   SMALLINT,
   racial_points                 SMALLINT,
   feats_points                  SMALLINT,

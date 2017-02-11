@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS campaign_participation CASCADE;
+
+CREATE TABLE campaign_participation (
+  character   CHARACTER VARYING(255) REFERENCES user(email) NOT NULL,
+  campaign    INTEGER REFERENCES campaign(id) NOT NULL,
+
+  PRIMARY KEY(character, campaign)
+);
