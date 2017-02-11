@@ -11,10 +11,12 @@ var express           = require('express'),
     flash             = require('connect-flash'),
     session           = require('express-session'),
     passport          = require('passport'),
-    memoryStore       = require('session-memory-store')(session);;
+    LocalStrategy     = require('passport-local').Strategy,
+    memoryStore       = require('session-memory-store')(session);
 
 
 var routes = require('./routes/index');
+var users = require('./routes/users');
 var dbAPI = require('./routes/api-db');
 
 
@@ -43,13 +45,28 @@ app.use(cookieParser());
 
 // session and passport
 app.use(session({
-  name: 'JSESSION',
-  secret: 'BøgeRedetKatolskeKirkeAuschwitz',
-  store: new memoryStore({expires: 86400})
+  secret: 'BogeRedetKatolskeKirkeAuschwitz',
+  resave: false,
+  saveUninitialized: false
+  // store: new memoryStore({expires: 86400})
 }));
+
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
+
+
+// passport config
+var Account = require('./models/account');
+passport.use(new LocalStrategy(Account.authenticate()));
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
+
+
+
+
+
+
 
 
 // adding the sass middleware

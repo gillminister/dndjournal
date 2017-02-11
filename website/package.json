@@ -1,21 +1,21 @@
 {
-  "name": "dndjournal",
-  "version": "0.0.0",
-  "description": "A website dedicated to keeping track of a DnD Campaign Story",
+  "name": "westplate",
+  "version": "0.3.4",
+  "description": "A website dedicated to keeping track of DnD Campaign Stories",
   "main": "./routes/index.js",
   "scripts": {
     "start": "node ./bin/www"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gillminister/dndjournal.git"
+    "url": "git+https://github.com/gillminister/westplate.git"
   },
   "author": "dendril",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/gillminister/dndjournal/issues"
+    "url": "https://github.com/gillminister/westplate/issues"
   },
-  "homepage": "https://github.com/gillminister/dndjournal#readme",
+  "homepage": "https://github.com/gillminister/westplate#readme",
   "engines": {
     "node": "6.8.0"
   },
