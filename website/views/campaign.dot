@@ -1,0 +1,26 @@
+---
+layout: materialize_base.dot
+title: Westplate
+---
+
+[[##pagestyle:
+
+<link rel="stylesheet" type="text/css" href="stylesheets/home.css">
+#]]
+
+[[##javascript:
+
+#]]
+
+
+[[##javascript_body:
+
+#]]
+
+[[##extranav:
+
+#]]
+
+[[##pagecontent:
+
+#]]

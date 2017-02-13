@@ -15,9 +15,6 @@ var express             = require('express'),
     RedisStore          = require('connect-redis')(session);
 
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var dbAPI = require('./routes/api-db');
 
 
 
@@ -89,14 +86,8 @@ passport.deserializeUser(function(email, done) {
 
 
 app.post('/login',
-  passport.authenticate('local', { failureRedirect: '/login' }),
+  passport.authenticate('local', { failureRedirect: '/' }),
   function(req, res) {
-    res.redirect('/profile');
-  });
-
-app.get('/logout',
-  function(req, res){
-    req.logout();
     res.redirect('/');
   });
 
@@ -131,9 +122,10 @@ sass.render({
 
 
 
-
-app.use('/', routes);
-app.use('/api/', dbAPI);
+// Routes
+app.use('/', require('./routes/index'));
+app.use('/', require('./routes/auth'));
+app.use('/api/', require('./routes/api-db'));
 
 var durrdb = require('./queries/character-queries');
 
@@ -170,7 +162,7 @@ app.use(function (err, req, res, next) {
 	app.use(function (err, req, res, next) {
 			res.status(err.code || 500)
 					.json({
-							status: 'errorqqq',
+							status: 'error',
 							message: err
 					});
 	});

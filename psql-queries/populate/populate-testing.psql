@@ -1,8 +1,13 @@
-INSERT INTO character (name, race) VALUES ('Slinder', 'elf');
-INSERT INTO character (name, race) VALUES ('Garrick', 'human');
-INSERT INTO character (name, race) VALUES ('Grigor', 'human');
-INSERT INTO character (name, race) VALUES ('Zalan', 'human');
-INSERT INTO character (name, race) VALUES ('Hector', 'human');
+INSERT INTO userbase (email, username, password, salt, isadmin) VALUES ('jorn91@hotmail.com', 'Dendril2', '$2a$10$CzHiqEhZ0oM4jJgAbYuhVug2UEnwWLYdrPIFsAtExioB6r4g18NJW', '$2a$10$CzHiqEhZ0oM4jJgAbYuhVu', false);
+INSERT INTO userbase (email, username, password, salt, isadmin) VALUES ('jorn91@gmail.com', 'Dendril', 'b', '$2a$10$5sTVYGiCgppNbOPo3IG8WO', false);
+
+INSERT INTO campaign (title, description, dungeon_master) VALUES ('LARP Håkøya', 'Ta med sverd og wooden dildos', 'jorn91@gmail.com');
+
+INSERT INTO character (campaign, name, race) VALUES (1, 'Slinder', 'elf');
+INSERT INTO character (campaign, name, race) VALUES (1, 'Garrick', 'human');
+INSERT INTO character (campaign, name, race) VALUES (1, 'Grigor', 'human');
+INSERT INTO character (campaign, name, race) VALUES (1, 'Zalan', 'human');
+INSERT INTO character (campaign, name, race) VALUES (1, 'Hector', 'human');
 
 INSERT INTO event (year, milliseconds, title, description) VALUES (1374,	25488000000,	'First Event Ever',	'This is just a test event. I want to see how it looks on your face');
 INSERT INTO event (year, milliseconds, title, description) VALUES (1374,	25488000000,	'Event at same time as First',	'Do not be a dickhead');

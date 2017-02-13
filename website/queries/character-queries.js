@@ -45,8 +45,8 @@ function getSingleCharacter(req, res, next) {
 }
 
 function createCharacter(req, res, next) {
-  db.none("insert into character (name, race, class)" +
-      "values(${name}, ${race}, ${class})", req.body)
+  db.none("insert into character (name, race)" +
+      "values(${name}, ${race})", req.body)
     .then(function () {
       res.status(200)
         .json({

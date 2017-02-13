@@ -130,6 +130,7 @@ $background-color: #fff;
 body {
   // background-color: $background-color;
   background: url("../images/blue-gradients.020-wh.jpg") no-repeat fixed center top / cover , #171717 url("../images/bg-dark-grain.png") repeat scroll left top !important;
+	min-height: 600px;
   font: 100% CooperHewitt;
   font-weight:300;
   color: $primary-color;
@@ -138,11 +139,6 @@ body {
 
 
 
-.logo-text{
-  position: absolute;
-  margin-left: 14pt;
-  bottom: 9pt;
-}
 
 .contact{
   display: flex;

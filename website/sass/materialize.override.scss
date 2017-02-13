@@ -1,5 +1,5 @@
 .brand-logo img{
-  max-height: 40pt;
+  max-height: 50pt;
 }
 
 *, *::before, *::after {
@@ -18,6 +18,18 @@ nav, .footer-copyright{
 nav{
   margin-top: 25pt;
 
+}
+
+nav:last-of-type{
+	margin-bottom: 40pt;
+}
+
+.logo-text{
+  position: absolute;
+  margin-left: 14pt;
+  bottom: 14pt;
+	font-size: 1.5em;
+	font-weight: 400;
 }
 
 .green.darken-3, .green.darken-4 {

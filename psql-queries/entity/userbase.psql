@@ -5,7 +5,7 @@ CREATE TABLE userbase (
   username          CHARACTER VARYING(25) UNIQUE NOT NULL,
   password          CHARACTER VARYING(128),
   salt              CHARACTER VARYING(256),
-  admin             BOOLEAN,
+	isadmin           BOOLEAN,
 
   PRIMARY KEY(email)
 );

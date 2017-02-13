@@ -12,30 +12,72 @@ title: Character - Westplate
 
 #]]
 
+[[##javascript_body:
+  <script src="js/characters.js"></script>
+#]]
+
 [[##extranav:
 <nav class="green darken-4" role="navigation">
   <div class="row">
     <div class="col s12">
-      <ul class="tabs green darken-4">
-        <li class="tab col tabs-fixed-width s6 m3 l2"><a class="active grey-text text-lighten-5" href="#single">NAME</a></li>
-        <li class="tab col tabs-fixed-width s6 m3 l2"><a class="grey-text text-lighten-5" href="#all">All Characters</a></li>
+      <ul class="tabs green darken-4 hide-on-small">
+        <li class="tab col tabs-fixed-width s6 m3 l2 offset-l2"><a class="grey-text text-lighten-5" href="#main_character">Campaign Main</a></li>
+        <li class="tab col tabs-fixed-width s6 m3 l2"><a class="grey-text text-lighten-5" href="#my_characters">My Characters</a></li>
+        <li class="tab col tabs-fixed-width s6 m3 l2"><a class="grey-text text-lighten-5" href="#all_characters">All Characters</a></li>
+        <li class="tab col tabs-fixed-width s6 m3 l2"><a class="active grey-text text-lighten-5" href="#new_character_form">New character</a></li>
       </ul>
     </div>
   </div>
+
 </nav>
 #]]
 
 [[##pagecontent:
 <div class="row">
 
-  <div id="new_character_form" class="col l4 s12">
+  <div id="main_character" class="col s12">
+    Please create a character. You can select which character to be displayed on your profile.
+  </div>
+
+
+
+  <div id="my_characters" class="col s12">
+    LIST_OF_USER_CREATED_CAMPAIGN_CHARACTERS
+  </div>
+
+
+
+  <div id="all_characters" class="col s12">
+    LIST_OF_ALL_CHARACTERS<br>
+    WHERE PUBLISHED = TRUE<br>
+  </div>
+
+
+
+
+
+  <div id="new_character_form" class="col l6 s12 offset-l3">
     <div class="row">
 
+    <div class="row">
+      <div class="input-field col s12 l8 offset-l2">
+        <select name="race">
+          <option value="" disabled selected>Choose campaign</option>
+          <option value="1">LARP Håkøya</option>
+        </select>
+        <label>Campaign</label>
+      </div>
+    </div>
+
       <div class="row">
-        <div class="input-field col s12">
-          <input id="name" name="name" type="text" class="validate">
+        <div class="input-field col s6 l8">
+          <input name="name" type="text" class="validate">
           <label for="name">Name</label>
         </div>
+          <div class="input-field col s6 l4">
+            <input name="name" type="text" value="[[= model.user.username ]]" disabled class="validate">
+            <label for="owner">Owner</label>
+          </div>
       </div>
 
       <div class="row">
@@ -73,8 +115,8 @@ title: Character - Westplate
       </div>
 
       <div class="row create-character-button">
-        <div class="col s10 l12 left">
-          <button class="btn waves-effect waves-light" onclick="balleballe()">Create character
+        <div class="col s12 l12 center">
+          <button class="btn waves-effect waves-light" onclick="ajax_newCharacter()">Create character
             <i class="material-icons right">send</i>
           </button>
         </div>
@@ -82,7 +124,11 @@ title: Character - Westplate
 
     </div>
   </div>
+
 </div>
 
-<script src="js/character.js"></script>
+
+
+
+
 #]]

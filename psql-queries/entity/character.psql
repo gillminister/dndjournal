@@ -1,9 +1,33 @@
 DROP TABLE IF EXISTS character CASCADE;
 
 CREATE TABLE "character" (
-    id SERIAL NOT NULL,
-    race race NOT NULL,
-    name CHARACTER VARYING(50),
+    id 									SERIAL NOT NULL,
+		campaign						INTEGER REFERENCES campaign(id) NOT NULL,
+		owner								CHARACTER VARYING(255) REFERENCES userbase(email),
+		is_published				BOOLEAN,
+
+    name 								CHARACTER VARYING(50),
+    description					TEXT,
+    race 								race NOT NULL,
+
+		strength						SMALLINT,
+		strength_item				SMALLINT,
+		strength_temp				SMALLINT,
+		dexterity						SMALLINT,
+		dexterity_item			SMALLINT,
+		dexterity_temp			SMALLINT,
+		constitution				SMALLINT,
+		constitution_item		SMALLINT,
+		constitution_temp		SMALLINT,
+		intelligence				SMALLINT,
+		intelligence_item		SMALLINT,
+		intelligence_temp		SMALLINT,
+		wisdom							SMALLINT,
+		wisdom_item					SMALLINT,
+		wisdom_temp					SMALLINT,
+		charisma						SMALLINT,
+		charisma_item				SMALLINT,
+		charisma_temp				SMALLINT,
 
     PRIMARY KEY (id)
 );

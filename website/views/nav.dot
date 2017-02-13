@@ -1,35 +1,49 @@
-<!--<nav class="green darken-3" role="navigation">-->
 <nav class="green darken-3" role="navigation">
 
 
   <div class="nav-wrapper container">
 
-    <a id="logo-container" href="/" class="brand-logo valign"><img src="images/dndlogo.svg"><span class="logo-text hide-on-med-and-down">Westplate</span></a>
+    <a id="logo-container" href="/" class="brand-logo valign"><img src="images/westplate_logo.png"><span class="logo-text hide-on-med-and-down">Westplate</span></a>
+		[[? model.user ]]
     <a href="#" data-activates="mobile-navpanel" class="button-collapse"><i class="material-icons">menu</i></a>
 
-    <ul id="character-dropdown" class="dropdown-content">
-      <li><a class="waves-effect" href="/character#bargrim">Bargrim / Eyra</a></li>
-      <li><a class="waves-effect" href="/character#garrick">Garrick</a></li>
-      <li><a class="waves-effect" href="/character#grigor">Grigor</a></li>
-      <li><a class="waves-effect" href="/character#gondol">Gondol</a></li>
-      <li><a class="waves-effect" href="/character#hector">Hector</a></li>
-      <li><a class="waves-effect" href="/character#zalan">Zalan</a></li>
-      <li><a class="waves-effect" href="/character#slinder">Slinder</a></li>
+    <ul id="mobile_character_dropdown" class="dropdown-content">
+      <li><a class="waves-effect" href="/characters#bargrim">Bargrim / Eyra</a></li>
+      <li><a class="waves-effect" href="/characters#garrick">Garrick</a></li>
+      <li><a class="waves-effect" href="/characters#grigor">Grigor</a></li>
+      <li><a class="waves-effect" href="/characters#gondol">Gondol</a></li>
+      <li><a class="waves-effect" href="/characters#hector">Hector</a></li>
+      <li><a class="waves-effect" href="/characters#zalan">Zalan</a></li>
+      <li><a class="waves-effect" href="/characters#slinder">Slinder</a></li>
     </ul>
+
+		<ul id="profile_dropdown" class="dropdown-content">
+		  <li><a href="/profile">My Profile</a></li>
+		  <li><a href="#!">two</a></li>
+		  <li class="divider"></li>
+		  <li><a href="/logout">Log out</a></li>
+		</ul>
 
 
     <ul class="right hide-on-med-and-down">
-      <li><a href="/character">Character</a></li>
-      <li><a href="/story">Story</a></li>
-      <li><a href="/map">Map</a></li>
+      <li><a href="/characters" class="flow-text">Characters</a></li>
+      <li><a href="#!" class="flow-text" onclick="alertify.error('Not yet implemented')">Story</a></li>
+      <li><a href="#!" class="flow-text" onclick="alertify.error('Not yet implemented')">Map</a></li>
+
+			<li><a class="dropdown-button flow-text" href="#!" data-activates="profile_dropdown">[[= model.user.username ]]<i class="material-icons right">arrow_drop_down</i></a></li>
+
     </ul>
 
     <ul class="side-nav" id="mobile-navpanel">
       <li><a class="waves-effect" href="/story">Story</a></li>
       <li><a class="waves-effect" href="/map">Map</a></li>
       <li class="divider"></li>
-      <li><a class="dropdown-button" href="#!" data-activates="character-dropdown">Character<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a class="dropdown-button" href="#!" data-activates="mobile_character_dropdown">Character<i class="material-icons right">arrow_drop_down</i></a></li>
+
+			<li><a href="/profile">My Profile</a></li>
+		  <li><a href="/logout">Log out</a></li>
     </ul>
+		[[?]]
   </div>
 </nav>
 

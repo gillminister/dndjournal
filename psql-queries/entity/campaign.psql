@@ -4,6 +4,6 @@ CREATE TABLE campaign (
   id              SERIAL NOT NULL,
   title           CHARACTER VARYING(50),
   description     TEXT,
-  dungeon_master  CHARACTER VARYING(255) REFERENCES user(email),
+  dungeon_master  CHARACTER VARYING(255) REFERENCES userbase(email) NOT NULL,
   PRIMARY KEY(id)
 );
