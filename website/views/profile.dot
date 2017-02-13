@@ -23,19 +23,17 @@ title: Westplate
 #]]
 
 [[##pagecontent:
+  <p>
+    [[? model.user ]]
+      Username:  [[=model.user.username]] <br/>
+      Email: [[=model.user.email]]<br/>
 
-  <form action="/login" method="post">
-  	<div>
-    	<label>Username:</label>
-    	<input type="text" name="username"/><br/>
-    	</div>
-    	<div>
-    	<label>Password:</label>
-    	<input type="password" name="password"/>
-    	</div>
-    	<div>
-    	<input type="submit" value="Submit"/>
-  	</div>
-</form>
+      <a href="/logout">Log out</a>
+    [[??]]
+      You're not logged in, cunt<br/>
+      <a href="/login">Log in</a>
+    [[?]]
+  </p>
+
 
 #]]

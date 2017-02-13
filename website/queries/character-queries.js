@@ -14,18 +14,17 @@ module.exports = {
 
 
 function getAllCharacters(req, res, next) {
-  db.any('select * from character order by name')
+  console.log(db.any('select * from character order by name')
     .then(function (data) {
       res.status(200)
         .json({
           status: 'success',
           data: data,
-          message: 'Retrieved ALL characters ordered by name'
         });
     })
     .catch(function (err) {
       return next(err);
-    });
+  }));
 }
 
 

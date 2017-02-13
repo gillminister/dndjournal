@@ -1,18 +1,18 @@
-var express           = require('express'),
-    path              = require('path'),
-    favicon           = require('serve-favicon'),
-    logger            = require('morgan'),
-    cookieParser      = require('cookie-parser'),
-    bodyParser        = require('body-parser'),
-    sass              = require('node-sass'),
-    sassMiddleware    = require('node-sass-middleware'),
-    bourbon           = require('node-bourbon'),
-    multer            = require('multer'),
-    flash             = require('connect-flash'),
-    session           = require('express-session'),
-    passport          = require('passport'),
-    LocalStrategy     = require('passport-local').Strategy,
-    memoryStore       = require('session-memory-store')(session);
+var express             = require('express'),
+    path                = require('path'),
+    favicon             = require('serve-favicon'),
+    logger              = require('morgan'),
+    cookieParser        = require('cookie-parser'),
+    bodyParser          = require('body-parser'),
+    sass                = require('node-sass'),
+    sassMiddleware      = require('node-sass-middleware'),
+    bourbon             = require('node-bourbon'),
+    multer              = require('multer'),
+    flash               = require('connect-flash'),
+    session             = require('express-session'),
+    passport            = require('passport'),
+    LocalStrategy       = require('passport-local').Strategy,
+    RedisStore          = require('connect-redis')(session);
 
 
 var routes = require('./routes/index');
@@ -45,26 +45,60 @@ app.use(cookieParser());
 
 // session and passport
 app.use(session({
-  secret: 'BogeRedetKatolskeKirkeAuschwitz',
-  resave: false,
-  saveUninitialized: false
-  // store: new memoryStore({expires: 86400})
+    // store: new RedisStore({
+    //   url: config.redisStore.url
+    // }),
+    secret: 'Rpulr2PhclcBNXzdTjoFR8v+F02Qixutq2wEecwbtIs2ojnKp5F21OREa0eEc344o1XVmFP8y/0PwlSSJqOxAg==',
+    // secret: config.redisStore.secret,
+    resave: false,
+    saveUninitialized: false
 }));
 
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-app.use(flash()); // use connect-flash for flash messages stored in session
+// app.use(flash()); // use connect-flash for flash messages stored in session
 
 
-// passport config
-var Account = require('./models/account');
-passport.use(new LocalStrategy(Account.authenticate()));
-passport.serializeUser(Account.serializeUser());
-passport.deserializeUser(Account.deserializeUser());
+var dbdb = require('./queries/userbase-queries');
 
 
+// // passport config
+passport.use(new LocalStrategy(
+	{usernameField: 'email'},
+	(email, password, done) => {
+		dbdb.findByEmail(email, function(err, user) {
+		console.log("checking for user: " + user);
+		if (err) { return done(err); }
+		if (!user) { return done(null, false); }
+		if (user.password != password) { return done(null, false); }
+		return done(null, user);
+	});
+}));
 
 
+passport.serializeUser(function(user, done) {
+  done(null, user.email);
+});
+
+passport.deserializeUser(function(email, done) {
+  dbdb.findByEmail(email, function (err, user) {
+    if (err) { return done(err); }
+    done(null, user);
+  });
+});
+
+
+app.post('/login',
+  passport.authenticate('local', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/profile');
+  });
+
+app.get('/logout',
+  function(req, res){
+    req.logout();
+    res.redirect('/');
+  });
 
 
 
@@ -96,6 +130,8 @@ sass.render({
 
 
 
+
+
 app.use('/', routes);
 app.use('/api/', dbAPI);
 
@@ -120,8 +156,8 @@ if (app.get('env') === 'development') {
     app.use(function (err, req, res, next) {
         res.status(err.code || 500)
             .json({
-                status: 'error',
-                message: err
+                status: 'error_dev',
+                message: err.stack
             });
     });
 }
@@ -130,7 +166,14 @@ if (app.get('env') === 'development') {
 
 app.use(function (err, req, res, next) {
   console.error(err.stack)
-  res.status(500).send(err.message)
+  // res.status(500).send(err.message)
+	app.use(function (err, req, res, next) {
+			res.status(err.code || 500)
+					.json({
+							status: 'errorqqq',
+							message: err
+					});
+	});
 })
 
 

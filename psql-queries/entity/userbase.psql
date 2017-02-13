@@ -1,10 +1,11 @@
-DROP TABLE IF EXISTS user CASCADE;
+DROP TABLE IF EXISTS userbase CASCADE;
 
-CREATE TABLE user (
+CREATE TABLE userbase (
   email             CHARACTER VARYING(255) NOT NULL,
-  nickname          CHARACTER VARYING(25),
+  username          CHARACTER VARYING(25) UNIQUE NOT NULL,
   password          CHARACTER VARYING(128),
   salt              CHARACTER VARYING(256),
+  admin             BOOLEAN,
 
   PRIMARY KEY(email)
 );
