@@ -57,12 +57,12 @@ title: Character - Westplate
 
 
   <div id="new_character_form" class="col l6 s12 offset-l3">
-    <div class="row">
+
+    <input id="character_owner" type="hidden" value="[[=model.user.email]]">
 
     <div class="row">
       <div class="input-field col s12 l8 offset-l2">
-        <select name="race">
-          <option value="" disabled selected>Choose campaign</option>
+        <select name="campaign">
           <option value="1">LARP Håkøya</option>
         </select>
         <label>Campaign</label>
@@ -95,8 +95,9 @@ title: Character - Westplate
           <label>Race</label>
         </div>
 
+
         <div class="input-field col s6">
-          <select name="class">
+          <select name="character_class">
             <option value="" disabled selected>Choose class</option>
             <option value="barbarian">Barbarian</option>
             <option value="bard">Bard</option>

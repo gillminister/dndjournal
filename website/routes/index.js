@@ -24,5 +24,13 @@ router.get(
 	  res.render('characters', { user: req.user });
 });
 
+/* GET character page. */
+router.get(
+	'/campaign',
+	require('connect-ensure-login').ensureLoggedIn({ redirectTo: "/" }),
+	(req, res, next) => {
+	  res.render('campaign', { user: req.user });
+});
+
 
 module.exports = router;

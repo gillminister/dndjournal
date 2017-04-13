@@ -1,8 +1,8 @@
 var promise = require('bluebird');
 
 var options = {
-  // Initialization Options
-  promiseLib: promise
+    // Initialization Options
+    promiseLib: promise
 };
 
 var pgp = require('pg-promise')(options);
@@ -12,7 +12,7 @@ var db = pgp(connectionString);
 // add query functions
 
 module.exports = {
-  getAllEvents: getAllEvents
+    getAllEvents: getAllEvents
 };
 
 
@@ -21,7 +21,7 @@ module.exports = {
 
 function getAllEvents(req, res, next) {
     db.any('select * from event')
-        .then(function (data) {
+        .then(function(data) {
             res.status(200)
                 .json({
                     status: 'success',
@@ -29,7 +29,7 @@ function getAllEvents(req, res, next) {
                     message: 'Retrieved ALL events'
                 });
         })
-        .catch(function (err) {
+        .catch(function(err) {
             return next(err);
         });
 }

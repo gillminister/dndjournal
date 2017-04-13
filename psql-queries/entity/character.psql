@@ -8,7 +8,7 @@ CREATE TABLE "character" (
 
     name 								CHARACTER VARYING(50),
     description					TEXT,
-    race 								race NOT NULL,
+    race 								race,
 
 		strength						SMALLINT,
 		strength_item				SMALLINT,
