@@ -1,6 +1,26 @@
 $(document).ready(function() {
     $('select').material_select();
+    populateMyCharacters();
 });
+
+
+var populateMyCharacters = function() {
+    var myCharsDiv = $("#my_characters");
+
+    $.get("/api/user/characters/jorn91@gmail.com", function() {
+            alert("success");
+        })
+        .done(function(data) {
+            alert("second success");
+            console.log(data);
+        })
+        .fail(function() {
+            alert("error");
+        })
+        .always(function() {
+            alert("finished");
+        });
+};
 
 
 var ajax_newCharacter = function() {

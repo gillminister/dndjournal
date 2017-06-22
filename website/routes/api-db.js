@@ -8,6 +8,7 @@ var enumDB = require('../queries/enum-queries');
 
 router.get('/characters', charDB.getAllCharacters);
 router.get('/characters/:id', charDB.getSingleCharacter);
+router.get('/user/characters/:email', charDB.getAllCharactersByOwner);
 router.get('/enum/race', enumDB.getRaceEnums);
 // app.post('/api/characters', db.createCharacter);
 // router.put('/api/characters/:id', db.updateCharacter);

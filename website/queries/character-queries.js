@@ -7,6 +7,7 @@ var db = require('./database-connection').db;
 module.exports = {
     getAllCharacters: getAllCharacters,
     getSingleCharacter: getSingleCharacter,
+    getAllCharactersByOwner: getAllCharactersByOwner,
     createCharacter: createCharacter,
     updateCharacter: updateCharacter,
     removeCharacter: removeCharacter,
@@ -14,7 +15,7 @@ module.exports = {
 
 
 function getAllCharacters(req, res, next) {
-    console.log(db.any('select * from character order by name')
+    db.any('select * from character order by name')
         .then(function(data) {
             res.status(200)
                 .json({
@@ -24,7 +25,7 @@ function getAllCharacters(req, res, next) {
         })
         .catch(function(err) {
             return next(err);
-        }));
+        });
 }
 
 
@@ -37,6 +38,25 @@ function getSingleCharacter(req, res, next) {
                     status: 'success',
                     data: data,
                     message: 'Retrieved ONE character'
+                });
+        })
+        .catch(function(err) {
+            return next(err);
+        });
+}
+
+
+function getAllCharactersByOwner(req, res, next) {
+    console.log(req.params);
+    var ownerEmail = req.params.email;
+    console.log(ownerEmail);
+    db.any("select * from character where owner=$1", ownerEmail)
+        .then(function(data) {
+            res.status(200)
+                .json({
+                    status: 'success',
+                    data: data,
+                    message: ('Retrieved ALL characters owned by ' + ownerEmail)
                 });
         })
         .catch(function(err) {
