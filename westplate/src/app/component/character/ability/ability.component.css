@@ -1,0 +1,22 @@
+.ability-table{
+	display: flex;
+	flex-direction: column;
+	width: 120pt;
+	/* border: dashed red 1px; */
+}
+
+.ability-row {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	justify-content: flex-end;
+}
+
+.ability-score {
+	margin-left: 8pt;
+}
+
+
+input {
+	width: 32pt;
+}
